@@ -39,6 +39,15 @@ export const userApi = createApi({
             }),
           
         }),
+        addMoney: builder.mutation({
+            query:({_id, ...rest})=>({
+                url: `/addmoney/${_id}`,
+                method: 'PUT',
+                body: rest,
+                headers:{ 'Content-Type': 'application/json',}
+            }),
+          
+        }),
         userInfo :builder.query({
             query:(_id)=>({
                 url:`/userinfo/${_id}`,
@@ -60,4 +69,4 @@ export const userApi = createApi({
     }),
     
   })
-  export const {useRegisterUserMutation,useLoginUserMutation, useLazyLogoutUserQuery, useSendMoneyMutation, useUserInfoQuery} = userApi;
+  export const {useRegisterUserMutation,useLoginUserMutation, useLazyLogoutUserQuery, useSendMoneyMutation, useUserInfoQuery, useAddMoneyMutation} = userApi;

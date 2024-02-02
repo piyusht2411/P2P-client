@@ -28,6 +28,9 @@ const UserInfo = () => {
   <p>Your wallet amount is Rs. {responseInfo.data.user.wallet}</p>
   
    <Link to ='/sendmoney'><button>Send Money</button></Link>
+   <br/>
+   <p>Add money in your wallet</p>
+   <Link to ='/addmoney'><button>Add Money</button></Link>
   </>
 
   )
