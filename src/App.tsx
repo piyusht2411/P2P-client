@@ -10,6 +10,7 @@ import Transactions from './Pages/Transactions';
 import { useAppDispatch } from './store/store';
 import { setUser } from './store/reducers/authSlice';
 import AddMoney from './Pages/AddMoney';
+import Blank from './Pages/Blank';
 
 const App = ()=>{
   const dispatch = useAppDispatch();
@@ -27,6 +28,7 @@ const App = ()=>{
       <Route path="/user/userinfo" element={<UserInfo/>}/>
       <Route path="/sendmoney" element={<Transactions/>}/>
       <Route path="/addmoney" element={<AddMoney/>}/>
+      <Route path ='/payment' element = {<Blank/>}/>
     </Routes>
     </BrowserRouter>
 

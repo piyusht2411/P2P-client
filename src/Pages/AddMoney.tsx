@@ -36,7 +36,7 @@ const schema = yup.object().shape({
       const result = await addMoney({_id: _id, amount:amount});
       window.alert('Your money is added successfully');
       console.log(result);
-      navigate('/user/userinfo');
+      navigate('/payment');
       
     };
     return (

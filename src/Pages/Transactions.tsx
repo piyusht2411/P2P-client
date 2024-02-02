@@ -40,9 +40,9 @@ import Header from "../components/Header";
       const {email, amount} = formData;
       const result = await sendMoney({_id: _id,receiverMail:email, amount:amount});
 
-      window.alert('Money is transfered successfully');
+      // window.alert('Money is transfered successfully');
       console.log(result);
-      navigate('/user/userinfo');
+      navigate('/payment');
       
     };
     return (
