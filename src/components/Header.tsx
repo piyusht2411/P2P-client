@@ -8,7 +8,7 @@ import { useLazyLogoutUserQuery } from '../service/user';
 
 const Header = () => {
   const {authToken} = useAppSelector(selectAuth);
-  console.log(authToken);
+  // console.log(authToken);
   const dispatch = useAppDispatch();
   const [logoutUser] = useLazyLogoutUserQuery();
   const navigate = useNavigate();
