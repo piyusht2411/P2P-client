@@ -6,11 +6,13 @@ import { selectAuth, logout } from '../store/reducers/authSlice';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import {useState,useEffect} from 'react'
+import HourlyHistory from '../components/HourlyHistory';
+import YearlyHistory from '../components/YearlyHistory';
 
 
 const UserInfo = () => {
   const {_id} = useAppSelector(selectAuth);
-  console.log(_id);
+  // console.log(_id);
   const responseInfo = useUserInfoQuery(_id);
   console.log(responseInfo);
 
@@ -31,6 +33,8 @@ const UserInfo = () => {
    <br/>
    <p>Add money in your wallet</p>
    <Link to ='/addmoney'><button>Add Money</button></Link>
+   {/* <HourlyHistory/> */}
+   <YearlyHistory/>
   </>
 
   )
