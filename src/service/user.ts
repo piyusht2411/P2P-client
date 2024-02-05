@@ -5,10 +5,10 @@ export const userApi = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:8080' ,
     prepareHeaders:(headers,{getState})=>{
         const authToken=(getState() as RootState).auth.authToken;
-        // const refreshToken=(getState() as RootState).auth.refreshToken;
-        if(authToken){
-            // console.log(`Bearer ${authToken}+${refreshToken}`)
-            headers.set("authorization",`Bearer ${authToken}`);
+        const refreshToken=(getState() as RootState).auth.refreshToken;
+        if(authToken && refreshToken){
+            console.log(`Bearer ${authToken}+${refreshToken}`)
+            headers.set("authorization",`Bearer ${authToken}+ ${refreshToken}`);
         }
         return headers;
     }
