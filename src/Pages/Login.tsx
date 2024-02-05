@@ -44,6 +44,8 @@ import { setUser } from "../store/reducers/authSlice";
     useEffect(()=>{
       if(isSuccess){
         dispatch(setUser({name:data.user.name, _id:data.user._id, authToken:data.authToken, refreshToken:data.refreshToken}));
+        console.log("auth token", data.authToken);
+        console.log("referesh token", data.refreshToken);
         navigate("/user/userinfo");
       }
     })
