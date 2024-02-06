@@ -11,6 +11,7 @@ import YearlyHistory from '../components/YearlyHistory';
 import DailyHistory from '../components/DailyHistory';
 import WeeklyHistory from '../components/WeeklyHistory';
 import MonthlyHistory from '../components/MonthlyHistory';
+import styles from "../styles/UserInfo.module.css"
 
 
 const UserInfo = () => {
@@ -75,31 +76,46 @@ const UserInfo = () => {
     return <div>Error fetching user data</div>
   }
   return (
-  <>
+  <div className={styles.mainPage}>
   <Header/>
+  <br/>
+  <div className={styles.userInfo}>
   <h2>Hello {responseInfo.data.user.name}</h2>
-  <p>Your wallet amount is Rs. {responseInfo.data.user.wallet}</p>
-  
-   <Link to ='/sendmoney'><button>Send Money</button></Link>
+  <div className={styles.userWallet}>
+  <p>Wallet Balance</p>
+  <p>{responseInfo.data.user.wallet} &#8377;</p>
+  </div>
+  <div className={styles.userEmail}>
+  <p>Email</p>
+  <p> {responseInfo.data.user.email}</p>
+  </div>
+  <div className={styles.userPhone}>
+  <p>Phone no.</p>
+  <p> +91{responseInfo.data.user.phone}</p>
+  </div>
+  <p className={styles.userButtonPara}>Want to send money to your friends or family</p>
+   <Link to ='/sendmoney'><button className={styles.userButton}>Send Money</button></Link>
    <br/>
-   <p>Add money in your wallet</p>
-   <Link to ='/addmoney'><button>Add Money</button></Link><br/>
-  <button onClick={handleShow}>Clcik here to see your transiton history</button>
+   <p className={styles.userButtonPara}>Want to add money to your wallet</p>
+   <Link to ='/addmoney'><button className={styles.userButton}>Add Money</button></Link><br/>
+   <p className={styles.userButtonPara}>You may check all your transaction history by clicking below </p>
+  <button className={styles.userButton} onClick={handleShow}>transaction history</button>
  {show? <div>
-  <div>
-   <button onClick={handleHour}>last hour tansition History</button>
-    <button onClick={handleDay}>last day tansition History</button>
-    <button onClick={handleWeek}>last week tansition History</button>
-    <button onClick={handleMonth}>last month tansition History</button>
-    <button onClick={handleYear}>last year tansition History</button>
-   </div>
+  <ol className={styles.GreenNumbers}>
+  <li> <button onClick={handleHour}>last hour tansition History</button></li>
+    <li><button onClick={handleDay}>last day tansition History</button></li>
+   <li> <button onClick={handleWeek}>last week tansition History</button></li>
+    <li><button onClick={handleMonth}>last month tansition History</button></li>
+   <li> <button onClick={handleYear}>last year tansition History</button></li>
+   </ol>
    {hour?<HourlyHistory/>:""}
   { daily?<DailyHistory/>:""}
   {week?<WeeklyHistory/>:""}
   {month?<MonthlyHistory/>:""}
   {year?<YearlyHistory/>:""}
   </div>:""}
-  </>
+  </div>
+  </div>
 
   )
   
