@@ -1,5 +1,5 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from '../styles/Page.module.css'
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -7,6 +7,7 @@ import { useLoginUserMutation } from "../service/user";
 import { useAppDispatch } from "../store/store";
 import { useEffect } from "react";
 import { setUser } from "../store/reducers/authSlice";
+import Header from "../components/Header";
   
   interface IFormInput {
     email: string,
@@ -50,18 +51,22 @@ import { setUser } from "../store/reducers/authSlice";
       }
     })
     return (
-      
-      <form className={styles.form} onSubmit={handleSubmit(onSubmitHandler)}>
-             <h2>Login User</h2>
+      <div className={styles.login}>
+      <Header />
+      <div className={styles.main}>
+        <form className={styles.form} onSubmit={handleSubmit(onSubmitHandler)}>
+             <h2>Login</h2>
         <label className={styles.lable}>Email</label>
-        <input className={styles.input} {...register("email")}/>
+        <input className={styles.input} {...register("email")} placeholder="Enter your email"/>
         {errors.email && <p>{errors.email.message}</p>}
   
         <label className={styles.lable}>Password</label>
-        <input className={styles.input} {...register("password")} type="password" />
+        <input className={styles.input} {...register("password")} type="password" placeholder="Enter your password" />
         {errors.password && <p>{errors.password.message}</p>}
-  
+  <Link to = '/register'><p>Don't have an account?</p></Link>
         <input className={styles.input2} type="submit" value="Login" />
       </form>
+      </div>
+      </div>
     )
   }

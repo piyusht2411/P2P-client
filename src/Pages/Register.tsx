@@ -1,9 +1,10 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import styles from '../styles/Page.module.css'
+import { Link, useNavigate } from "react-router-dom";
+import styles from '../styles/Register.module.css'
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useRegisterUserMutation } from "../service/user";
+import Header from "../components/Header";
   
   interface IFormInput {
     name: string,
@@ -49,25 +50,30 @@ import { useRegisterUserMutation } from "../service/user";
     };
     return (
       
-      <form className={styles.form} onSubmit={handleSubmit(onSubmitHandler)}>
+      <div className={styles.register}>
+        <Header />
+        <div className={styles.main2}>
+        <form className={styles.form2} onSubmit={handleSubmit(onSubmitHandler)}>
              <h2>Registration Form</h2>
 
-        <label className={styles.lable}>Name</label>
-        <input className={styles.input} {...register("name")} />
+        <label className={styles.lable2}>Name</label>
+        <input className={styles.input2} {...register("name")} placeholder="Enter your name"/>
         {errors.name && <p>{errors.name.message}</p>}
   
-        <label className={styles.lable}>Email</label>
-        <input className={styles.input} {...register("email")}/>
+        <label className={styles.lable2}>Email</label>
+        <input className={styles.input2} {...register("email")} placeholder="Enter your email"/>
         {errors.email && <p>{errors.email.message}</p>}
-        <label className={styles.lable}>Phone no.</label>
-        <input className={styles.input} {...register("phone")}/>
+        <label className={styles.lable2}>Phone no.</label>
+        <input className={styles.input2} {...register("phone")} placeholder="Enter your phone no."/>
         {errors.phone && <p>{errors.phone.message}</p>}
   
-        <label className={styles.lable}>Password</label>
-        <input className={styles.input} {...register("password")} type="password" />
+        <label className={styles.lable2}>Password</label>
+        <input className={styles.input2} {...register("password")} type="password" placeholder="Enter your password" />
         {errors.password && <p>{errors.password.message}</p>}
-  
+        <Link to = '/login'><p>Already have an account?</p></Link>
         <input className={styles.input2} type="submit" value="Register" />
       </form>
+      </div>
+      </div>
     )
   }
