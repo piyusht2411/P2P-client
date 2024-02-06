@@ -1,6 +1,5 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import styles from '../styles/Page.module.css'
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useLoginUserMutation, useSendMoneyMutation } from "../service/user";
@@ -8,6 +7,7 @@ import { useAppDispatch, useAppSelector } from "../store/store";
 import { useEffect } from "react";
 import { selectAuth, setUser } from "../store/reducers/authSlice";
 import Header from "../components/Header";
+import styles from "../styles/TransferMoney.module.css"
   
   interface IFormInput {
     email: string,
@@ -47,19 +47,22 @@ import Header from "../components/Header";
     };
     return (
       
-      <><Header/>
-      <form className={styles.form} onSubmit={handleSubmit(onSubmitHandler)}>
+      <div className={styles.transfer}>
+        <Header/>
+     <div className={styles.main3}>
+     <form className={styles.form3} onSubmit={handleSubmit(onSubmitHandler)}>
       <h2>Transfer Money</h2>
- <label className={styles.lable}>Email</label>
- <input className={styles.input} {...register("email")}/>
+ <label className={styles.lable3}>Email</label>
+ <input className={styles.input3} {...register("email")}/>
  {errors.email && <p>{errors.email.message}</p>}
 
- <label className={styles.lable}>Amount</label>
- <input className={styles.input} {...register("amount")}/>
+ <label className={styles.lable3}>Amount</label>
+ <input className={styles.input3} {...register("amount")}/>
  {errors.amount && <p>{errors.amount.message}</p>}
 
- <input className={styles.input2} type="submit" value="Send Money" />
+ <input className={styles.input3} type="submit" value="Send Money" />
    </form>
-      </>
+     </div>
+      </div>
     )
   }

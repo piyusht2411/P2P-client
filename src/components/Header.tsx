@@ -35,7 +35,7 @@ const Header = () => {
     {!authToken ?<li className={styles.loginButtons}>
       <Link to="/login"><button>Login</button></Link>
       <Link to="/register"><button>Register</button></Link>
-    </li> : <div><button onClick={()=>handleLogout()}>logout</button></div>}
+    </li> : <li className={styles.loginButtons}><button onClick={()=>handleLogout()}>logout</button></li>}
    </nav>
    </>
   )

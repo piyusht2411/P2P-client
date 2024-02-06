@@ -1,6 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import styles from '../styles/Page.module.css'
+import styles from '../styles/AddMoney.module.css'
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useAddMoneyMutation } from "../service/user";
@@ -41,16 +41,19 @@ const schema = yup.object().shape({
     };
     return (
       
-      <><Header/>
-      <form className={styles.form} onSubmit={handleSubmit(onSubmitHandler)}>
+      <div className={styles.addMoney}>
+        <Header/>
+      <div className={styles.main4}>
+      <form className={styles.form4} onSubmit={handleSubmit(onSubmitHandler)}>
       <h2>Add Money</h2>
 
- <label className={styles.lable}>Amount</label>
- <input className={styles.input} {...register("amount")}/>
+ <label className={styles.lable4}>Amount</label>
+ <input className={styles.input4} {...register("amount")}/>
  {errors.amount && <p>{errors.amount.message}</p>}
 
- <input className={styles.input2} type="submit" value="Add Money" />
+ <input className={styles.input4} type="submit" value="Add Money" />
    </form>
-      </>
+      </div>
+      </div>
     )
   }

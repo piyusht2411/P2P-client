@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import Header from '../components/Header';
 import styles from '../styles/Home.module.css';
 import { Link } from 'react-router-dom';
+import { useAppSelector } from '../store/store';
+import { selectAuth } from '../store/reducers/authSlice';
 
 const Home = () => {
+  const {authToken} = useAppSelector(selectAuth);
   const [show, setShow] = useState<boolean>(false);
 
   const handleShow = ()=>{
@@ -28,10 +31,10 @@ const Home = () => {
         <div className={styles.homeSidebar}>
           <h3>Send Money to your friends and family</h3>
           <label>You Send</label><br/>
-          <input type="text" placeholder="1000" disabled /><br/>
+          <input type="text" placeholder="&#8377; 1000" disabled /><br/>
           <label>Recipient get</label><br/>
-          <input type="text" placeholder="1000" disabled /><br/>
-         <Link to = "/register"><button>Get Started</button></Link>
+          <input type="text" placeholder="&#8377; 1000" disabled /><br/>
+          {!authToken?<Link to = "/register"><button>Get Started</button></Link>: <Link to = "/user/userinfo"><button>Get Started</button></Link>}
         </div>
       </div>
     </div>
