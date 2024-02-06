@@ -83,7 +83,7 @@ const UserInfo = () => {
   <h2>Hello {responseInfo.data.user.name}</h2>
   <div className={styles.userWallet}>
   <p>Wallet Balance</p>
-  <p>{responseInfo.data.user.wallet} &#8377;</p>
+  <p>&#8377; {responseInfo.data.user.wallet}</p>
   </div>
   <div className={styles.userEmail}>
   <p>Email</p>

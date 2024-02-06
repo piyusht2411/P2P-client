@@ -1,0 +1,12 @@
+.historyBar, .historyResult{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    list-style: none;
+    margin-top: 20px;
+}
+.historyBar{
+    font-weight: bold;
+    margin-top: 20px;
+}

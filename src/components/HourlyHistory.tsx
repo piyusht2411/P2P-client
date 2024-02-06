@@ -2,6 +2,7 @@ import React from 'react'
 import { useAppSelector } from '../store/store'
 import { selectAuth } from '../store/reducers/authSlice';
 import { useHourlyHistoryQuery } from '../service/user';
+import styles from "./History.module.css"
 
 const HourlyHistory = () => {
   const { _id } = useAppSelector(selectAuth);
@@ -17,15 +18,24 @@ const HourlyHistory = () => {
   }
   if (responseInfo.isSuccess) {
     return (
+      <>
+      <div>
+        <ul className={styles.historyBar}>
+          <li>Status</li>
+          <li>Amount</li>
+          <li>Now Money</li>
+          <li>Date & Time</li>
+        </ul>
+      </div>
       <ul>
         {responseInfo.data.map((item:any) => {
           // return <li key = {item}>{item.amount} {item.timestamp}</li>
           return (
-        <div>
-          <li key = {item}>Status - {item.status}</li>
-          <li key = {item}>Amount - {item.amount}</li>
-          <li key = {item}>Now Money - {item.wallet}</li>
-          <li key = {item}>Time - {item.timestamp}</li>
+        <div className={styles.historyResult}>
+          <li key = {item}>{item.status}</li>
+          <li key = {item}>&#8377; {item.amount}</li>
+          <li key = {item}>&#8377; {item.wallet}</li>
+          <li key = {item}>{item.timestamp}</li>
         </div>
           
           )
@@ -33,6 +43,7 @@ const HourlyHistory = () => {
        
   
       </ul>
+      </>
     )
 
   }
