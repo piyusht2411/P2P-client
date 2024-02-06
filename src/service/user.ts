@@ -3,6 +3,7 @@ import { RootState } from '../store/store';
 export const userApi = createApi({
     reducerPath: 'userApi',
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:8080' ,
+    credentials: 'include',
     prepareHeaders:(headers,{getState})=>{
         const authToken=(getState() as RootState).auth.authToken;
         // const refreshToken=(getState() as RootState).auth.refreshToken;
