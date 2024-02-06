@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.home{
+    background-image: url('../assets/Images/artistic-blurry-colorful-wallpaper-background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 50px;
+    position: relative;
+    top: 10%;
+}
+.homeDescription{
+    width: 30vw;
+    /* margin: auto; */
+
+}
+.homeDescription h2, .homeDescription p{
+    color:white;
+    text-wrap: wrap;
+    text-align: left;
+    
+}
+.homeDescription p{
+    line-height: 25px;
+    font-size: 13px;
+
+}
+.homeDescription h2{
+    line-height: 40px;
+}
+.homeDescription button{
+    padding: 10px;
+    background-color: white;
+    color:black;
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 100px;
+    height: 35px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 20px;
+}
+.homeDescription button:hover{
+   background-color: black;
+   color: white;
+}
+/* .more{
+    display: none;
+} */
+.homeSidebar{
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 50px;
+    width: 25vw;
+    height: 42vh;
+    
+}
+.homeSidebar h3{
+    color:white;
+    text-wrap: wrap;
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 8px;
+
+}
+.homeSidebar label{
+    color:white;
+    font-size: 10px;
+    font-weight: bold;
+
+}
+.homeSidebar input{
+    background-color: transparent;
+    width: 90%;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+.homeSidebar input::placeholder{
+    color:white;
+    font-size: 15px;
+}
+.homeSidebar button{
+    padding: 10px;
+    background-color: white;
+    color:black;
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 100px;
+    height: 35px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 20px;
+}
+.homeSidebar a{
+    text-decoration: none;
+}
+.homeSidebar button:hover{
+    background-color: black;
+    color: white;
+}

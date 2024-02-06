@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../store/store';
 import { logout, selectAuth } from '../store/reducers/authSlice';
 import { useLazyLogoutUserQuery } from '../service/user';
+import styles from '../styles/Header.module.css';
 
 const Header = () => {
   const {authToken} = useAppSelector(selectAuth);
@@ -23,12 +24,18 @@ const Header = () => {
 
   return (
    <>
-   <nav>
-    <h3>P2P wallet</h3>
-    {!authToken ?<div>
+   <nav className={styles.nav}>
+    <li className={styles.logoHeading}><p>P2P wallet</p></li>
+  
+    <li><p>How it works</p></li>
+    <li><p>Why Us</p></li>
+    <li><p>About Us</p></li>
+    <li><p>Contact Us</p></li>
+
+    {!authToken ?<li className={styles.loginButtons}>
       <Link to="/login"><button>Login</button></Link>
       <Link to="/register"><button>Register</button></Link>
-    </div> : <div><button onClick={()=>handleLogout()}>logout</button></div>}
+    </li> : <div><button onClick={()=>handleLogout()}>logout</button></div>}
    </nav>
    </>
   )

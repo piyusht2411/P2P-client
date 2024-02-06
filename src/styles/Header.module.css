@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 10vh;
+}
+.logoHeading{
+    color:white
+}
+.nav li{
+    list-style: none;
+    
+}
+.nav li p{
+    color: white;
+    font-weight: bold;
+}
+.loginButtons button{
+    padding: 10px;
+    background-color:white;
+    color:black;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin: 5px;
+    width: 80px;
+    height: 35px;
+    cursor: pointer;
+
+}
+.nav li p:hover{
+    color:pink;
+}
+.loginButtons button:hover{
+    background-color: black;
+    color: white;
+
+}
