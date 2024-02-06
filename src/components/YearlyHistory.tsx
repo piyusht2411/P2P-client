@@ -22,6 +22,7 @@ const YearlyHistory = () => {
           // return <li key = {item}>{item.amount} {item.timestamp}</li>
           return (
         <div>
+            <li key = {item}>Status - {item.status}</li>
           <li key = {item}>Amount - {item.amount}</li>
           <li key = {item}>Time - {item.timestamp}</li>
         </div>
