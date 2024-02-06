@@ -66,6 +66,10 @@
     text-transform: capitalize;
     cursor: pointer;
 }
+.userInfo ol li button:hover{
+    color:yellow;
+    text-decoration: underline;
+}
 /* ol li ::marker{
     color: white;
     font-size: 15px;

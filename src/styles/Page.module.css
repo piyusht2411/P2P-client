@@ -91,5 +91,6 @@ input:focus{
   margin-bottom: auto;
 }
 .main a:hover{
-  color: red;
+  color: yellow;
+  font-weight: bold;
 }
