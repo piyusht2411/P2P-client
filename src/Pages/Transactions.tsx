@@ -42,10 +42,12 @@ import styles from "../styles/TransferMoney.module.css"
       console.log(result);
 
       if("error" in result){
-        navigate('/paymentfailed');
+          //@ts-ignore
+        navigate('/paymentfailed',{state:{message:result.error.data.message}});
       }
       if("data" in result){
-        navigate('/payment');
+        let transitionId = result.data.transitionId;
+        navigate('/payment', {state:{transitionId:transitionId}});
       }
             
     };

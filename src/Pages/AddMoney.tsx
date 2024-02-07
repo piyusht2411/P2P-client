@@ -37,11 +37,13 @@ const schema = yup.object().shape({
       console.log(result);
       
       if("error" in result){
-        navigate('/paymentfailed');
-      }
-      if("data" in result){
-        navigate('/payment');
-      }
+        //@ts-ignore
+      navigate('/paymentfailed',{state:{message:result.error.data.message}});
+    }
+    if("data" in result){
+      let transitionId = result.data.transitionId;
+      navigate('/payment', {state:{transitionId:transitionId}});
+    }
       
     };
     return (
