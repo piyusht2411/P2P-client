@@ -34,9 +34,14 @@ const schema = yup.object().shape({
     const onSubmitHandler: SubmitHandler<IFormInput> = async(formData)=>{
       const {amount} = formData;
       const result = await addMoney({_id: _id, amount:amount});
-      window.alert('Your money is added successfully');
       console.log(result);
-      navigate('/payment');
+      
+      if("error" in result){
+        navigate('/paymentfailed');
+      }
+      if("data" in result){
+        navigate('/payment');
+      }
       
     };
     return (
