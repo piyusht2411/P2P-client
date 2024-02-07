@@ -24,7 +24,7 @@ const UserInfo = () => {
   const {_id} = useAppSelector(selectAuth);
   // console.log(_id);
   const responseInfo = useUserInfoQuery(_id);
-  console.log(responseInfo);
+  // console.log(responseInfo);
   function handleHour(){
     sethour(true);
     setdaily(false);
@@ -62,7 +62,7 @@ const UserInfo = () => {
     setdaily(false);
     setweek(false);
     setmonth(false);
-    setyear(year);
+    setyear(true);
 
    }
    function handleShow(){

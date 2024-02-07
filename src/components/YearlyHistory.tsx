@@ -1,15 +1,13 @@
 import React from 'react'
 import { useAppSelector } from '../store/store'
 import { selectAuth } from '../store/reducers/authSlice';
-import { useHourlyHistoryQuery, useWeklyHistoryQuery, useYearlyHistoryQuery } from '../service/user';
+import { useMonthlyHistoryQuery, useYearlyHistoryQuery } from '../service/user';
 import styles from "./History.module.css"
 
 const YearlyHistory = () => {
-  const { _id } = useAppSelector(selectAuth);
+  const {_id} = useAppSelector(selectAuth);
   const responseInfo = useYearlyHistoryQuery(_id);
-  // console.log(responseInfo);
-
-
+ 
   if (responseInfo.isLoading) {
     return <div>Loading user info...</div>
   }
