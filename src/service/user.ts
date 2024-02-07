@@ -97,6 +97,14 @@ export const userApi = createApi({
             })
 
         }),
+        contactUs: builder.mutation({
+            query:(body)=>({
+                url: '/contactus',
+                method: 'POST',
+                body: body,
+            }),
+          
+        }),
         logoutUser: builder.query<void, void>({
             // query:()=> `/logout`
             query:()=>({
@@ -110,4 +118,4 @@ export const userApi = createApi({
     }),
     
   })
-  export const {useRegisterUserMutation,useLoginUserMutation, useLazyLogoutUserQuery, useSendMoneyMutation, useUserInfoQuery, useAddMoneyMutation, useHourlyHistoryQuery, useDailyHistoryQuery, useWeklyHistoryQuery, useMonthlyHistoryQuery, useYearlyHistoryQuery} = userApi;
+  export const {useRegisterUserMutation,useLoginUserMutation, useLazyLogoutUserQuery, useSendMoneyMutation, useUserInfoQuery, useAddMoneyMutation, useHourlyHistoryQuery, useDailyHistoryQuery, useWeklyHistoryQuery, useMonthlyHistoryQuery, useYearlyHistoryQuery, useContactUsMutation} = userApi;

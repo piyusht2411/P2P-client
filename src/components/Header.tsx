@@ -25,12 +25,12 @@ const Header = () => {
   return (
    <>
    <nav className={styles.nav}>
-    <li className={styles.logoHeading}><p>P2P wallet</p></li>
+    <li className={styles.logoHeading}><Link to = "/"><p>P2P wallet</p></Link></li>
   
-    <li><p>How it works</p></li>
-    <li><p>Why Us</p></li>
-    <li><p>About Us</p></li>
-    <li><p>Contact Us</p></li>
+    <li><Link to = "/howitworks"><p>How it works</p></Link></li>
+    <li><Link to = "/whyus"><p>Why US</p></Link></li>
+    <li><Link to = "/aboutus"><p>About Us</p></Link></li>
+    <li><Link to = "/contactus"><p>Contact Us</p></Link></li>
 
     {!authToken ?<li className={styles.loginButtons}>
       <Link to="/login"><button>Login</button></Link>

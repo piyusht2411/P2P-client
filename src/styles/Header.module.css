@@ -55,3 +55,6 @@
     font-size: 4rem;
     /* margin: auto; */
 }
+.nav li a{
+    text-decoration: none;
+}
