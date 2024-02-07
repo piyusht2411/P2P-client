@@ -40,3 +40,18 @@
     font-weight: bold;
 
 }
+.errorHeading{
+    background-image: url('../assets/Images/artistic-blurry-colorful-wallpaper-background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
+.errorHeading h1{
+    color:white;
+    text-align: center;
+    position: relative;
+    top: 40%;
+    font-size: 4rem;
+    /* margin: auto; */
+}

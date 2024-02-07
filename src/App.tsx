@@ -11,6 +11,8 @@ import { useAppDispatch } from './store/store';
 import { setUser } from './store/reducers/authSlice';
 import AddMoney from './Pages/AddMoney';
 import Blank from './Pages/Blank';
+import Error_404 from './Pages/Error_404';
+import Blank_Error from './Pages/Blacnk_Error';
 
 const App = ()=>{
   const dispatch = useAppDispatch();
@@ -29,6 +31,8 @@ const App = ()=>{
       <Route path="/sendmoney" element={<Transactions/>}/>
       <Route path="/addmoney" element={<AddMoney/>}/>
       <Route path ='/payment' element = {<Blank/>}/>
+      <Route path="/paymentfailed" element={<Blank_Error/>}/>
+      <Route path="*" element={<Error_404/>}/>
     </Routes>
     </BrowserRouter>
 

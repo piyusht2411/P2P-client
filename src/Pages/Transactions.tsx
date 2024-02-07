@@ -31,7 +31,7 @@ import styles from "../styles/TransferMoney.module.css"
     } = useForm<IFormInput>({ resolver: yupResolver(schema) });
 
     const {_id} = useAppSelector(selectAuth);
-  const [sendMoney, {data, isSuccess,isLoading,isError}] = useSendMoneyMutation();
+  const [sendMoney, responsInfo] = useSendMoneyMutation();
   
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
@@ -39,11 +39,15 @@ import styles from "../styles/TransferMoney.module.css"
     const onSubmitHandler: SubmitHandler<IFormInput> = async(formData)=>{
       const {email, amount} = formData;
       const result = await sendMoney({_id: _id,receiverMail:email, amount:amount});
-
-      // window.alert('Money is transfered successfully');
       console.log(result);
-      navigate('/payment');
-      
+
+      if("error" in result){
+        navigate('/paymentfailed');
+      }
+      if("data" in result){
+        navigate('/payment');
+      }
+            
     };
     return (
       
