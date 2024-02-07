@@ -94,3 +94,8 @@ input:focus{
   color: yellow;
   font-weight: bold;
 }
+.errorClass{
+  text-align: center;
+  color: red;
+  padding-top: 5px;
+}

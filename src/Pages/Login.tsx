@@ -19,9 +19,9 @@ import Header from "../components/Header";
       /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
       "Invalid email format"
     ),
-    password: yup.string().required("Email is a required field").matches(
+    password: yup.string().required("Password is a required field").matches(
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&^])[A-Za-z\d@.#$!%*?&]{8,15}$/,
-      "Invalid email format"
+      "Invalid password format"
     ),
   });
   
@@ -31,7 +31,7 @@ import Header from "../components/Header";
       handleSubmit,
       formState: { errors },
     } = useForm<IFormInput>({ resolver: yupResolver(schema) });
-  const [loginUser, {data, isSuccess,isLoading,isError}] = useLoginUserMutation();
+  const [loginUser, {data, isSuccess,isLoading,isError, error}] = useLoginUserMutation();
   
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
@@ -65,6 +65,10 @@ import Header from "../components/Header";
         {errors.password && <p>{errors.password.message}</p>}
   <Link to = '/register'><p>Don't have an account?</p></Link>
         <input className={styles.input2} type="submit" value="Login" />
+        {isError?<p className={styles.errorClass}>{
+          //@ts-ignore
+        error.data.message
+        }</p>:""}
       </form>
       </div>
       </div>

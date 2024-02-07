@@ -16,7 +16,7 @@
     flex-direction: column;
     /* max-width: 800px; */
     width: 35vw;
-    height: 67vh;
+    height: 70vh;
     margin: 0 auto;
     padding: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -91,4 +91,9 @@ input:focus{
 .main2 a:hover{
   color: yellow;
   font-weight: bold;
+}
+.errorClass{
+  text-align: center;
+  color: red;
+  padding-top: 5px;
 }
