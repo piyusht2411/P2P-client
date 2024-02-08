@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useAppSelector } from '../store/store';
 import { selectAuth } from '../store/reducers/authSlice';
 import Header2 from '../components/Header2';
+import Footer from '../components/Footer';
 
 const Home = () => {
   const {authToken} = useAppSelector(selectAuth);
@@ -38,8 +39,9 @@ const Home = () => {
           {!authToken?<Link to = "/register"><button>Get Started</button></Link>: <Link to = "/user/userinfo"><button>Get Started</button></Link>}
         </div>
       </div>
+      {/* <Footer/> */}
     </div>
   )
 }
 
-export default Home
+export default Home;
