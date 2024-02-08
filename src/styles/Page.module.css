@@ -99,3 +99,10 @@ input:focus{
   color: red;
   padding-top: 5px;
 }
+@media screen and (max-width: 480px) {
+  form{
+    width: 66vw;
+    height: 33vh;
+  }
+
+}

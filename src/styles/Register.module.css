@@ -1,7 +1,13 @@
 .register{
   background-image: url('../assets/Images/artistic-blurry-colorful-wallpaper-background.jpg');
-    background-repeat: no-repeat;
+  /* background: linear-gradient(#66009D, #000B77, #00042E); */
+  /* background: linear-gradient(180deg, rgba(102,0,157,1) 5%, rgba(0,11,119,1) 80%, rgba(0,4,46,1) 100%); */
     background-size: cover;
+    width: 100%;
+    height: 100%;
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
 }
 .main2{
   display: flex;
@@ -94,4 +100,11 @@ input:focus{
   text-align: center;
   color: red;
   padding-top: 5px;
+}
+@media screen and (max-width: 480px) {
+  .form2{
+    width: 65vw;
+    height: 60vh;
+  }
+
 }
