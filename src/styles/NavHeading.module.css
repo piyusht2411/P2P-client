@@ -25,6 +25,21 @@ body{
 .pagePara ol p{
     font-size: larger;
 }
-.pagePara ol li{
+.pagePara ol li .pagePara ul li{
     margin-top: 45px;
+}
+@media screen and (max-width: 480px) {
+    .pagePara{
+        margin: 0px;
+        text-align: left;
+    }
+    .pagePara h2{
+        font-size: xx-large;
+    }
+    .pagePara ul li, .pagePara ol li{
+        font-size: x-large;
+        width: 80vw;
+    }
+
+
 }
