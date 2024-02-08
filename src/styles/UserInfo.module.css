@@ -101,4 +101,12 @@ ol li::before{
     font-weight: bold;
     line-height: 4.0;
 }
+@media screen and (max-width: 480px) {
+    .userInfo{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+   
+  
+  }
 

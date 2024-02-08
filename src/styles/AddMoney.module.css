@@ -92,3 +92,10 @@
   .main3 a:hover{
     color: red;
   }
+  @media screen and (max-width: 480px) {
+    .form4{
+      width: 66vw;
+      height: 30vh;
+    }
+  
+  }
