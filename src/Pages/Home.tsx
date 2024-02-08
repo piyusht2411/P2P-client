@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css';
 import { Link } from 'react-router-dom';
 import { useAppSelector } from '../store/store';
 import { selectAuth } from '../store/reducers/authSlice';
+import Header2 from '../components/Header2';
 
 const Home = () => {
   const {authToken} = useAppSelector(selectAuth);
@@ -17,7 +18,7 @@ const Home = () => {
   }
   return (
     <div className={styles.home}>
-      <Header />
+      <Header2 />
       {/* <h2>Welcome to P2P wallet</h2> */}
       <div className={styles.main}>
         <div className={styles.homeDescription}>

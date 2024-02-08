@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from "../styles/NavHeading.module.css";
 import Header from '../components/Header';
+import Header2 from '../components/Header2';
 
 const WhyUs = () => {
   return (
     <div className={styles.main}>
-      <Header/>
+      <Header2/>
       <div className={styles.pagePara}>
 
 <h2>Welcome to P2P wallet, where we redefine the way you transfer money. Choosing the right platform for your financial transactions is crucial, and we believe we stand out from the rest. Here's why you should choose us:</h2>

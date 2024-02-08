@@ -12,6 +12,7 @@ import DailyHistory from '../components/DailyHistory';
 import WeeklyHistory from '../components/WeeklyHistory';
 import MonthlyHistory from '../components/MonthlyHistory';
 import styles from "../styles/UserInfo.module.css"
+import Header2 from '../components/Header2';
 
 
 const UserInfo = () => {
@@ -77,7 +78,7 @@ const UserInfo = () => {
   }
   return (
   <div className={styles.mainPage}>
-  <Header/>
+  <Header2/>
   <br/>
   <div className={styles.userInfo}>
   <h2>Hello {responseInfo.data.user.name}</h2>

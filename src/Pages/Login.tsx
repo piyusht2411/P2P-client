@@ -8,6 +8,7 @@ import { useAppDispatch } from "../store/store";
 import { useEffect } from "react";
 import { setUser } from "../store/reducers/authSlice";
 import Header from "../components/Header";
+import Header2 from "../components/Header2";
   
   interface IFormInput {
     email: string,
@@ -52,7 +53,7 @@ import Header from "../components/Header";
     })
     return (
       <div className={styles.login}>
-      <Header />
+      <Header2 />
       <div className={styles.main}>
         <form className={styles.form} onSubmit={handleSubmit(onSubmitHandler)}>
              <h2>Login</h2>

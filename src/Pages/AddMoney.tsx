@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from "../store/store";
 import { useEffect } from "react";
 import { selectAuth, setUser } from "../store/reducers/authSlice";
 import Header from "../components/Header";
+import Header2 from "../components/Header2";
 
 interface IFormInput {
   amount: string,
@@ -53,7 +54,7 @@ export default function AddMoney() {
   return (
 
     <div className={styles.addMoney}>
-      <Header />
+      <Header2 />
       <div className={styles.main4}>
         <form className={styles.form4} onSubmit={handleSubmit(onSubmitHandler)}>
           <h2>Add Money</h2>

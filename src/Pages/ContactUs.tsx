@@ -6,6 +6,7 @@ import * as yup from "yup";
 import { useContactUsMutation} from "../service/user";
 import Header from "../components/Header";
 import { useEffect } from "react";
+import Header2 from "../components/Header2";
 
 interface IFormInput {
   name: string,
@@ -49,7 +50,7 @@ export default function ContactUs() {
   return (
 
     <div className={styles.register}>
-      <Header />
+      <Header2 />
       <div className={styles.main2}>
         <form className={styles.form2} onSubmit={handleSubmit(onSubmitHandler)}>
           <h2>Contact US</h2>

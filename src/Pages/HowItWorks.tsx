@@ -1,10 +1,11 @@
 import React from 'react'
 import styles from "../styles/NavHeading.module.css";
 import Header from '../components/Header';
+import Header2 from '../components/Header2';
 const HowItWorks = () => {
   return (
     <div className={styles.main}>
-    <Header/>
+    <Header2/>
     <div className={styles.pagePara}>
         <h2>Welcome to P2P wallet, where transferring money has never been easier! Our platform is designed to provide you with a seamless and secure experience for sending money from one user to another. Here's a brief overview of how it works:</h2>
 <ol>

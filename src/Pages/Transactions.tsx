@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { selectAuth, setUser } from "../store/reducers/authSlice";
 import Header from "../components/Header";
 import styles from "../styles/TransferMoney.module.css"
+import Header2 from "../components/Header2";
 
 interface IFormInput {
   email: string,
@@ -58,7 +59,7 @@ export default function Transactions() {
   return (
 
     <div className={styles.transfer}>
-      <Header />
+      <Header2 />
       <div className={styles.main3}>
         <form className={styles.form3} onSubmit={handleSubmit(onSubmitHandler)}>
           <h2>Transfer Money</h2>
