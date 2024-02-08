@@ -77,7 +77,7 @@ const UserInfo = () => {
     return <div>Error fetching user data</div>
   }
   return (
-  <div className={styles.mainPage}>
+  <div className={styles.mainPage + " " +(!hour && !daily && !week && !month && !year? styles.mainPageHeight:"")}>
   <Header2/>
   <br/>
   <div className={styles.userInfo}>
