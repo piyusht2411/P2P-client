@@ -2,8 +2,6 @@
   background-image: url('../assets/Images/artistic-blurry-colorful-wallpaper-background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100vw;
-    height: 100vh;
 }
 .main2{
   display: flex;
