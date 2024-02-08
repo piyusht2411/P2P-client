@@ -102,6 +102,9 @@ ol li::before{
     line-height: 4.0;
 }
 @media screen and (max-width: 480px) {
+    .mainPage{
+        height: 100vh;
+    }
     .userInfo{
         padding-left: 30px;
         padding-right: 30px;
