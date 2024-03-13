@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.mainPage{
+    background-image: url('../assets/Images/artistic-blurry-colorful-wallpaper-background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.userInfo{
+    padding: 30px;
+    padding-left: 250px;
+    padding-right: 250px;
+}
+.userInfo h2{
+    text-align: center;
+    color:white;
+    text-transform: capitalize;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+.userWallet, .userEmail, .userPhone{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    margin-top: 25px;
+}
+.userButtonPara{
+    color: white;
+    margin-top: 20px;
+    font-weight: bold;
+    text-decoration:underline;
+}
+.userButton{
+    margin-top: 25px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    height: 40px;
+    text-align: center;
+    margin: auto;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+.userButton:hover{
+    background-color: black;
+    color:white;
+    font-weight: bold;
+}
+.userInfo a{
+    text-decoration: none;
+}
+.userInfo ol li button{
+    border:none;
+    background-color: transparent;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 25px;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+.userInfo ol li button:hover{
+    color:yellow;
+    text-decoration: underline;
+}
+/* ol li ::marker{
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+ol li::before{
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+} */
+.GreenNumbers {
+    list-style-type: none;
+}
+.GreenNumbers ol {
+    margin-left: 2em;
+}
+.GreenNumbers li {
+    counter-increment: count-me;
+}
+.GreenNumbers li::before {
+    content: counter(count-me) ". ";
+    display: block;
+    position: relative;
+    max-width: 0px;
+    max-height: 0px;
+    left: -1.3em;
+    top: .05em;
+    color:white;
+    font-weight: bold;
+    line-height: 4.0;
+}
+@media screen and (max-width: 480px) {
+    .mainPageHeight{
+        height: 100vh;
+    }
+    .userInfo{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+   
+  
+  }
+

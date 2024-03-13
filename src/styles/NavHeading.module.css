@@ -1,0 +1,45 @@
+body{
+    background-image: url('../assets/Images/artistic-blurry-colorful-wallpaper-background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.pagePara{
+    color: white;
+    padding: 40px;
+    /* padding-left: 100px;
+    padding-right: 100px; */
+    /* border: 3px solid white;
+    border-radius: 30px; */
+    margin: 40px;
+    margin-top: 60px;
+
+}
+.pagePara ul li, .pagePara ol li{
+    font-weight: bold;
+    font-size: xx-large;
+    margin: 20px;
+}
+.pagePara ul p{
+    font-size: large;
+}
+.pagePara ol p{
+    font-size: larger;
+}
+.pagePara ol li .pagePara ul li{
+    margin-top: 45px;
+}
+@media screen and (max-width: 480px) {
+    .pagePara{
+        margin: 0px;
+        text-align: left;
+    }
+    .pagePara h2{
+        font-size: xx-large;
+    }
+    .pagePara ul li, .pagePara ol li{
+        font-size: x-large;
+        width: 80vw;
+    }
+
+
+}

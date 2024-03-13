@@ -3,6 +3,7 @@ import { RootState } from '../store/store';
 export const userApi = createApi({
     reducerPath: 'userApi',
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:8080' ,
+    credentials: 'include',
     prepareHeaders:(headers,{getState})=>{
         const authToken=(getState() as RootState).auth.authToken;
         // const refreshToken=(getState() as RootState).auth.refreshToken;
@@ -56,6 +57,54 @@ export const userApi = createApi({
             })
 
         }),
+        hourlyHistory :builder.query({
+            query:(_id)=>({
+                url:`/hour/${_id}`,
+                method: 'GET',
+                headers:{ 'Content-Type': 'application/json',}
+            })
+
+        }),
+        dailyHistory :builder.query({
+            query:(_id)=>({
+                url:`/day/${_id}`,
+                method: 'GET',
+                headers:{ 'Content-Type': 'application/json',}
+            })
+
+        }),
+        weklyHistory :builder.query({
+            query:(_id)=>({
+                url:`/week/${_id}`,
+                method: 'GET',
+                headers:{ 'Content-Type': 'application/json',}
+            })
+
+        }),
+        monthlyHistory :builder.query({
+            query:(_id)=>({
+                url:`/month/${_id}`,
+                method: 'GET',
+                headers:{ 'Content-Type': 'application/json',}
+            })
+
+        }),
+        yearlyHistory :builder.query({
+            query:(_id)=>({
+                url:`/year/${_id}`,
+                method: 'GET',
+                headers:{ 'Content-Type': 'application/json',}
+            })
+
+        }),
+        contactUs: builder.mutation({
+            query:(body)=>({
+                url: '/contactus',
+                method: 'POST',
+                body: body,
+            }),
+          
+        }),
         logoutUser: builder.query<void, void>({
             // query:()=> `/logout`
             query:()=>({
@@ -69,4 +118,4 @@ export const userApi = createApi({
     }),
     
   })
-  export const {useRegisterUserMutation,useLoginUserMutation, useLazyLogoutUserQuery, useSendMoneyMutation, useUserInfoQuery, useAddMoneyMutation} = userApi;
+  export const {useRegisterUserMutation,useLoginUserMutation, useLazyLogoutUserQuery, useSendMoneyMutation, useUserInfoQuery, useAddMoneyMutation, useHourlyHistoryQuery, useDailyHistoryQuery, useWeklyHistoryQuery, useMonthlyHistoryQuery, useYearlyHistoryQuery, useContactUsMutation} = userApi;

@@ -1,0 +1,20 @@
+.logos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top:50%;
+}
+.instagramIcon a{
+    color:white;
+    font-size: 3.0rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+.logoPage{
+    background-color: transparent;
+    backdrop-filter: blur(100px);
+    opacity: 100%;
+    z-index:9999;
+    height: 21vh;
+}

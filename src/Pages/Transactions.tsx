@@ -1,6 +1,5 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import styles from '../styles/Page.module.css'
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useLoginUserMutation, useSendMoneyMutation } from "../service/user";
@@ -8,58 +7,76 @@ import { useAppDispatch, useAppSelector } from "../store/store";
 import { useEffect } from "react";
 import { selectAuth, setUser } from "../store/reducers/authSlice";
 import Header from "../components/Header";
-  
-  interface IFormInput {
-    email: string,
-    amount: string
-  }
-  
-  const schema = yup.object().shape({
-    email: yup.string().required("Email is a required field").matches(
-      /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-      "Invalid email format"
-    ),
-    amount: yup.string().required("Name is a required field"),
-    
-  });
-  
-  export default function Transactions() {
-   const {
-      register,
-      handleSubmit,
-      formState: { errors },
-    } = useForm<IFormInput>({ resolver: yupResolver(schema) });
+import styles from "../styles/TransferMoney.module.css"
+import Header2 from "../components/Header2";
 
-    const {_id} = useAppSelector(selectAuth);
-  const [sendMoney, {data, isSuccess,isLoading,isError}] = useSendMoneyMutation();
-  
-    const navigate = useNavigate();
-    const dispatch = useAppDispatch();
+interface IFormInput {
+  email: string,
+  amount: string,
+  pin: string
+}
 
-    const onSubmitHandler: SubmitHandler<IFormInput> = async(formData)=>{
-      const {email, amount} = formData;
-      const result = await sendMoney({_id: _id,receiverMail:email, amount:amount});
+const schema = yup.object().shape({
+  email: yup.string().required("Email is a required field").matches(
+    /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+    "Invalid email format"
+  ),
+  amount: yup.string().required("Name is a required field"),
+  pin: yup
+    .string()
+    .required("Pin is a required field"),
 
-      // window.alert('Money is transfered successfully');
-      console.log(result);
-      navigate('/payment');
-      
-    };
-    return (
-      
-      <><Header/>
-      <form className={styles.form} onSubmit={handleSubmit(onSubmitHandler)}>
-      <h2>Transfer Money</h2>
- <label className={styles.lable}>Email</label>
- <input className={styles.input} {...register("email")}/>
- {errors.email && <p>{errors.email.message}</p>}
+});
 
- <label className={styles.lable}>Amount</label>
- <input className={styles.input} {...register("amount")}/>
- {errors.amount && <p>{errors.amount.message}</p>}
+export default function Transactions() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IFormInput>({ resolver: yupResolver(schema) });
 
- <input className={styles.input2} type="submit" value="Send Money" />
-   </form>
-      </>
-    )
-  }
+  const { _id } = useAppSelector(selectAuth);
+  const [sendMoney, responsInfo] = useSendMoneyMutation();
+
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  const onSubmitHandler: SubmitHandler<IFormInput> = async (formData) => {
+    const { email, amount, pin } = formData;
+    const result = await sendMoney({ _id: _id, receiverMail: email, amount: amount, pin: pin });
+    console.log(result);
+
+    if ("error" in result) {
+      //@ts-ignore
+      navigate('/paymentfailed', { state: { message: result.error.data.message } });
+    }
+    if ("data" in result) {
+      let transitionId = result.data.transitionId;
+      navigate('/payment', { state: { transitionId: transitionId } });
+    }
+
+  };
+  return (
+
+    <div className={styles.transfer}>
+      <Header2 />
+      <div className={styles.main3}>
+        <form className={styles.form3} onSubmit={handleSubmit(onSubmitHandler)}>
+          <h2>Transfer Money</h2>
+          <label className={styles.lable3}>Email</label>
+          <input className={styles.input3} {...register("email")} placeholder="Enter the receciver's email" />
+          {errors.email && <p>{errors.email.message}</p>}
+
+          <label className={styles.lable3}>Amount</label>
+          <input className={styles.input3} {...register("amount")} placeholder="Enter the amount you want to send" />
+          {errors.amount && <p>{errors.amount.message}</p>}
+          <label className={styles.lable2}>Pin Number</label>
+          <input className={styles.input2} {...register("pin")} type="password" placeholder="Enter your pin number" />
+          {errors.pin && <p>{errors.pin.message}</p>}
+
+          <input className={styles.input3} type="submit" value="Send Money" />
+        </form>
+      </div>
+    </div>
+  )
+}
