@@ -27,15 +27,36 @@ const MonthlyHistory = () => {
           <li>Date & Time</li>
         </ul>
       </div>
-      <ul>
+     <ul>
         {responseInfo.data.map((item:any) => {
           // return <li key = {item}>{item.amount} {item.timestamp}</li>
+          let [date, time] = item.timestamp.split(', ');
+          let [month, day, year] = date.split('/');
+          month = month.length < 2 ? '0' + month : month;
+          day = day.length < 2 ? '0' + day : day;
+      
+          // Split the time into hours, minutes, and seconds
+          let [hours, minutes, seconds] = time.split(':');
+          // Add leading zero if hours, minutes, or seconds are single digit
+          hours = hours.length < 2 ? '0' + hours : hours;
+          minutes = minutes.length < 2 ? '0' + minutes : minutes;
+          seconds = seconds.split(' ')[0].length < 2 ? '0' + seconds.split(' ')[0] : seconds.split(' ')[0];
+          // Reconstruct the formatted time with AM/PM
+          let amPm = time.split(' ')[1];
+          let formattedTime = `${hours}:${minutes}:${seconds} ${amPm}`;
+      
+          let formattedTimestamp = `${month}/${day}/${year}, ${formattedTime}`;
+          
+          let formatedAmount = item.amount;
+          formatedAmount = formatedAmount.padStart(2,"0");
+
+
           return (
         <div className={styles.historyResult}>
           <li key = {item}>{item.status}</li>
-          <li key = {item}>&#8377; {item.amount}</li>
+          <li key = {item}>&#8377; {formatedAmount}</li>
           <li key = {item}>&#8377; {item.wallet}</li>
-          <li key = {item}>{item.timestamp}</li>
+          <li key={item}>{formattedTimestamp}</li>
         </div>
           
           )
