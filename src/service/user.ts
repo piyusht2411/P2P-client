@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { RootState } from '../store/store';
 export const userApi = createApi({
     reducerPath: 'userApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://p2p-server-t4ii.onrender.com' ,
+    baseQuery: fetchBaseQuery({ baseUrl: 'https://p2p-server-pi.vercel.app' ,
     credentials: 'include',
     prepareHeaders:(headers,{getState})=>{
         const authToken=(getState() as RootState).auth.authToken;
