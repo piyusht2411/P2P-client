@@ -4,6 +4,7 @@ import { selectAuth } from '../store/reducers/authSlice';
 import { useDailyHistoryQuery} from '../service/user';
 import styles from "./History.module.css"
 import ReactLoading from 'react-loading';
+import { notifyError } from '../toast';
 
 const DailyHistory = () => {
   const { _id } = useAppSelector(selectAuth);
@@ -15,7 +16,7 @@ const DailyHistory = () => {
     return <ReactLoading type={"spokes"} color={"white"} height={"7rem"} width={"7rem"} className={styles.loader}/>
   }
   if (responseInfo.isError) {
-    return <div>Error fetching user data!</div>
+    notifyError("Error Fetching Transaction!");
   }
   if (responseInfo.isSuccess) {
     return (
@@ -47,6 +48,7 @@ const DailyHistory = () => {
           let formattedTime = `${hours}:${minutes}:${seconds} ${amPm}`;
       
           let formattedTimestamp = `${month}/${day}/${year}, ${formattedTime}`;
+
           let formatedAmount = item.amount;
           formatedAmount = formatedAmount.padStart(2,"0");
 

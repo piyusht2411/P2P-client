@@ -4,6 +4,7 @@ import { selectAuth } from '../store/reducers/authSlice';
 import { useHourlyHistoryQuery, useWeklyHistoryQuery } from '../service/user';
 import styles from "./History.module.css"
 import ReactLoading from 'react-loading';
+import { notifyError } from '../toast';
 const WeeklyHistory = () => {
   const { _id } = useAppSelector(selectAuth);
   const responseInfo = useWeklyHistoryQuery(_id);
@@ -14,7 +15,7 @@ const WeeklyHistory = () => {
     return <ReactLoading type={"spokes"} color={"white"} height={"7rem"} width={"7rem"} className={styles.loader}/>
   }
   if (responseInfo.isError) {
-    return <div>Error fetching user data!</div>
+    notifyError("Error Fetching Transaction!");
   }
   if (responseInfo.isSuccess) {
     return (
