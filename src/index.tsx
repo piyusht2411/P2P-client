@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
 import ErrorBoundary from './components/Error.Boundary';
+import { ToastContainer } from 'react-toastify';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );

@@ -9,6 +9,7 @@ import { selectAuth, setUser } from "../store/reducers/authSlice";
 import Header from "../components/Header";
 import styles from "../styles/TransferMoney.module.css"
 import Header2 from "../components/Header2";
+import ReactLoading from 'react-loading';
 
 interface IFormInput {
   email: string,
@@ -75,6 +76,7 @@ export default function Transactions() {
           {errors.pin && <p>{errors.pin.message}</p>}
 
           <input className={styles.input3} type="submit" value="Send Money" />
+          {responsInfo.isLoading &&   <ReactLoading type={"spokes"} color={"white"} height={"7rem"} width={"7rem"} className={styles.loader}/>}
         </form>
       </div>
     </div>

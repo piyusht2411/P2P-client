@@ -92,6 +92,14 @@
   .main3 a:hover{
     color: red;
   }
+  .loader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top:30%;
+    left:40%
+  }
   @media screen and (max-width: 480px) {
     .form4{
       width: 66vw;

@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import Login from '../Pages/Login';
 import Register from '../Pages/Register';
 import { Link, useNavigate } from 'react-router-dom';
@@ -8,12 +8,14 @@ import { useLazyLogoutUserQuery } from '../service/user';
 import { useMediaQuery } from 'react-responsive';
 import { IoClose, IoMenu } from "react-icons/io5";
 import styles from '../styles/Header.module.css';
+import { notifyError, notifySuccess } from '../toast';
+import ReactLoading from 'react-loading';
 
 const Header2 = () => {
   const {authToken} = useAppSelector(selectAuth);
   // console.log(authToken);
   const dispatch = useAppDispatch();
-  const [logoutUser] = useLazyLogoutUserQuery();
+  const [logoutUser, {isSuccess, isError, isLoading}] = useLazyLogoutUserQuery();
   const navigate = useNavigate();
 
   const handleLogout = async() => {
@@ -23,6 +25,15 @@ const Header2 = () => {
       navigate('/');
 
   }
+  useEffect(()=>{
+    if(isSuccess){
+      notifySuccess("Logout Successfully");
+    }
+    if(isError){
+      notifyError("Error in logging out")
+    }
+
+  })
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isMobile = useMediaQuery({ maxWidth: "1150px" });
   const toggleMenu = () => {
@@ -49,7 +60,8 @@ const Header2 = () => {
     {!authToken ?<li className={styles.loginButtons}>
       <Link to="/login" onClick={closeMobileMenu}><button>Login</button></Link>
       <Link to="/register" onClick={closeMobileMenu}><button>Register</button></Link>
-    </li> : <li className={styles.loginButtons} onClick={closeMobileMenu}><button onClick={()=>handleLogout()}>logout</button></li>}
+    </li> : <li className={styles.loginButtons} onClick={closeMobileMenu}><button onClick={()=>handleLogout()}>Logout</button></li>}
+    {/* {isLoading &&   <ReactLoading type={"spokes"} color={"white"} height={"7rem"} width={"7rem"} className={styles.loaderlogout}/>} */}
    </nav> 
 
     )

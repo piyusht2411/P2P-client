@@ -10,3 +10,11 @@
     font-weight: bold;
     margin-top: 20px;
 }
+.loader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top:30%;
+    left:45%
+  }

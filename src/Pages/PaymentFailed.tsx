@@ -24,7 +24,7 @@ const PaymentFailed = () => {
                         <div className={styles.orderNumberLabel}>Error</div>
                         <div className={styles.orderNumber}>{location.state.message}</div>
                         <div className={styles.complementFail}>Sorry!</div>
-                        <a href='/user/userinfo'>Click here to get back</a>
+                        <a href='/user/userinfo' style={{color:"red"}}>Click here to get back</a>
                     </div>
                 </div>
                 <div className={styles.jaggedEdge}></div>

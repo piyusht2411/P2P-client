@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { selectAuth, setUser } from "../store/reducers/authSlice";
 import Header from "../components/Header";
 import Header2 from "../components/Header2";
+import ReactLoading from 'react-loading';
 
 interface IFormInput {
   amount: string,
@@ -67,6 +68,7 @@ export default function AddMoney() {
           {errors.pin && <p>{errors.pin.message}</p>}
 
           <input className={styles.input4} type="submit" value="Add Money" />
+          {isLoading &&   <ReactLoading type={"spokes"} color={"white"} height={"7rem"} width={"7rem"} className={styles.loader}/>}
         </form>
       </div>
     </div>

@@ -7,6 +7,8 @@ import { useRegisterUserMutation } from "../service/user";
 import Header from "../components/Header";
 import { useEffect } from "react";
 import Header2 from "../components/Header2";
+import ReactLoading from 'react-loading';
+import { notifyError, notifySuccess } from "../toast";
 
 interface IFormInput {
   name: string,
@@ -56,7 +58,12 @@ export default function Register() {
   };
   useEffect(() => {
     if (isSuccess) {
+      notifySuccess("Login Successful");
       navigate("/login");
+    }
+    if(isError){
+      //@ts-ignore
+      notifyError(error.data.message);
     }
   })
   return (
@@ -86,10 +93,11 @@ export default function Register() {
           {errors.pin && <p>{errors.pin.message}</p>}
           <Link to='/login'><p>Already have an account?</p></Link>
           <input className={styles.input2} type="submit" value="Register" />
-          {isError ? <p className={styles.errorClass}>{
+          {isLoading &&   <ReactLoading type={"spokes"} color={"white"} height={"7rem"} width={"7rem"} className={styles.loader}/>}
+          {/* {isError ? <p className={styles.errorClass}>{
             //@ts-ignore
             error.data.message
-          }</p> : ""}
+          }</p> : ""} */}
         </form>
       </div>
     </div>

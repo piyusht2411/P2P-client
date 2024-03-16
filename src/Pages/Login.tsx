@@ -9,7 +9,9 @@ import { useEffect } from "react";
 import { setUser } from "../store/reducers/authSlice";
 import Header from "../components/Header";
 import Header2 from "../components/Header2";
-  
+import ReactLoading from 'react-loading';
+import { notifyError, notifySuccess } from "../toast";
+import { log } from "console";
   interface IFormInput {
     email: string,
     password: string
@@ -48,7 +50,12 @@ import Header2 from "../components/Header2";
         dispatch(setUser({name:data.user.name, _id:data.user._id, authToken:data.authToken, refreshToken:data.refreshToken}));
         console.log("auth token", data.authToken);
         console.log("referesh token", data.refreshToken);
+        notifySuccess("Login Successful");
         navigate("/user/userinfo");
+      }
+      if(isError){
+        //@ts-ignore
+        notifyError(error.data.message);
       }
     })
     return (
@@ -66,10 +73,11 @@ import Header2 from "../components/Header2";
         {errors.password && <p>{errors.password.message}</p>}
   <Link to = '/register'><p>Don't have an account?</p></Link>
         <input className={styles.input2} type="submit" value="Login" />
-        {isError?<p className={styles.errorClass}>{
+{isLoading &&   <ReactLoading type={"spokes"} color={"white"} height={"7rem"} width={"7rem"} className={styles.loader}/>}
+        {/* {isError&& <p className={styles.errorClass}>{
           //@ts-ignore
         error.data.message
-        }</p>:""}
+        }</p>} */}
       </form>
       </div>
       </div>

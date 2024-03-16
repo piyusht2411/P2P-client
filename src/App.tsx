@@ -17,6 +17,7 @@ import ContactUs from './Pages/ContactUs';
 import WhyUs from './Pages/WhyUs';
 import HowItWorks from './Pages/HowItWorks';
 import AboutUs from './Pages/AboutUs';
+import { ToastContainer } from 'react-toastify';
 
 const App = ()=>{
   const dispatch = useAppDispatch();
@@ -26,6 +27,7 @@ const App = ()=>{
   },[]);
   return(
     <>
+    <ToastContainer toastStyle={{backgroundColor:"black", color:"white"}}/>
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Home/>}/>

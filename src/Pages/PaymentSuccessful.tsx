@@ -24,7 +24,7 @@ const PaymentSuccessfull = () => {
                         <div className={styles.orderNumberLabel}>Transaction ID</div>
                         <div className={styles.orderNumber}>{location.state.transitionId}</div>
                         <div className={styles.complement}>Thank You!</div>
-                        <a href='/user/userinfo'>Click here to get back</a>
+                        <a href='/user/userinfo' style={{color:"#32a852"}}>Click here to get back</a>
                     </div>
                 </div>
                 <div className={styles.jaggedEdge}></div>
